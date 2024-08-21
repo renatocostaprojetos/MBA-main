@@ -1,16 +1,15 @@
+# Este código tem como objetivo decifrar mensagens em código morse
+
+# Bibliotecas
 import os
 import datetime
 import pandas as pd
 from config import dict_morse, file_path
 
-
-
-#dict_morse = {".-": "A", "-...": "B", "-.-.": "C", "-..": "D", ".": "E", "..-.": "F","--.": "G", "....": "H", "..": "I", ".---": "J", "-.-": "K", ".-..": "L","--": "M", "-.": "N", "---": "O", ".--.": "P", "--.-": "Q", ".-.": "R","...": "S", "-": "T", "..-": "U", "...-": "V", ".--": "W", "-..-": "X","-.--": "Y", "--..": "Z", "-----": 0, ".----": 1, "..---": 2, "...--": 3,"....-": 4, ".....": 5, "-....": 6, "--...": 7, "---..": 8, "----.": 9}
-#file_path = 'msg_traduzida.txt'
-
+# Input da mensagem
 msg = str(input('Digite o código morse: '))
 
-
+# Função para decodificar o código morse
 def decodificar_msg(msg, dict_morse):
     mensagem_decodificada = []
     sep_palavra = msg.split('  ')
@@ -26,6 +25,7 @@ def decodificar_msg(msg, dict_morse):
     return ' '.join(mensagem_decodificada)
 
 
+# Funçao para salvar o código morse decifrado em um arquivo txt
 def save_clear_msg_csv_hdr(file_path, msg, dict_morse):
     now = datetime.datetime.now()
     msg_claro = decodificar_msg(msg, dict_morse)
